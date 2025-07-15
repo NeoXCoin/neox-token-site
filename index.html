@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add NeoX Token</title>
+</head>
+<body>
+  <h1>Add NeoX Token to MetaMask</h1>
+  <button onclick="addToken()">Add NeoX</button>
+
+  <script>
+    async function addToken() {
+      const wasAdded = await window.ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20',
+          options: {
+            address: '0x80AD039927cDf2341c1428b0ABF8D3421dc122e1',
+            symbol: 'NXC',
+            decimals: 18,
+            image: 'https://files.lighthouse.storage/viewFile/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe',
+          },
+        },
+      });
+
+      if (wasAdded) {
+        alert('NeoX Token added!');
+      } else {
+        alert('User rejected or something went wrong');
+      }
+    }
+  </script>
+</body>
+</html>
