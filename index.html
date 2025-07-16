@@ -73,6 +73,20 @@
   </style>
 </head>
 <body>
+  <!-- Footer Section -->
+<div id="footer-en" style="display: block;">
+  <!-- 英文版 Footer -->
+  <p style="font-size: 14px;">🌐 Currently deployed on <strong>Sepolia Testnet</strong> for development purposes only.</p>
+  <p style="font-size: 16px; font-weight: bold;">🚀 Join the Future of Digital Assets with <span style="color:#00bfff;">NeoX</span> – Secure, Fast & Visionary.</p>
+  <p style="font-size: 14px;">🔹 <a href="#">What is NeoX?</a> / <a href="#">How to Buy?</a></p>
+</div>
+
+<div id="footer-zh" style="display: none;">
+  <!-- 中文版 Footer -->
+  <p style="font-size: 14px;">🌐 現正部署於 <strong>Sepolia 測試網絡</strong>，僅供開發測試使用。</p>
+  <p style="font-size: 16px; font-weight: bold;">🚀 加入 <span style="color:#00bfff;">NeoX</span> — 再現數碼資產嶄新未來。</p>
+  <p style="font-size: 14px;">🔹 <a href="#">什麼是 NeoX？</a> / <a href="#">如何購買？</a></p>
+</div>
   <div class="lang-switch">
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('zh')">中文</button>
@@ -101,12 +115,16 @@
     let currentLang = 'en';
 
     function setLang(lang) {
-      currentLang = lang;
-      document.getElementById("title").innerText = langData[lang].title;
-      document.getElementById("addBtn").innerText = langData[lang].addBtn;
-      document.getElementById("alertText").innerText = "";
-    }
+  currentLang = lang;
 
+  document.getElementById("title").innerText = langData[lang].title;
+  document.getElementById("addBtn").innerText = langData[lang].addBtn;
+  document.getElementById("alertText").innerText = "";
+
+  // 🔻 Footer 語言切換顯示邏輯
+document.getElementById("footer-en").style.display = lang === 'en' ? 'block' : 'none';
+document.getElementById("footer-zh").style.display = lang === 'zh' ? 'block' : 'none';
+}
     async function addToken() {
       try {
         const wasAdded = await window.ethereum.request({
@@ -132,18 +150,7 @@
     }
   </script>
 </body>
-  <!-- ===== 👇 NeoX Footer Section（多語版本） ===== -->
-<div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.2); font-family: Arial, sans-serif; color: white; text-align: center;">
-
-  <!-- 🔹 英文版 -->
-  <div class="lang-content lang-en">
-    <!-- 1. Social Links -->
-    <div style="margin-bottom: 15px;">
-      <a href="https://twitter.com/NeoXCoin" target="_blank" style="color:#00bfff; margin: 0 10px;">Twitter</a> /
-      <a href="https://instagram.com/neocoingenesis" target="_blank" style="color:#00bfff; margin: 0 10px;">Instagram</a> /
-      <a href="https://opensea.io/NeoXCoin" target="_blank" style="color:#00bfff; margin: 0 10px;">OpenSea</a> /
-      <a href="https://thirdweb.com" target="_blank" style="color:#00bfff; margin: 0 10px;">Thirdweb</a>
-    </div>
+  
 
     <!-- 2. Testnet -->
     <p style="font-size: 14px; margin: 10px 0;">🌐 Currently deployed on <strong>Sepolia Testnet</strong> for development purposes only.</p>
