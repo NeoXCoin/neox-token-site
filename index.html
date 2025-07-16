@@ -5,41 +5,61 @@
   <title>Add NeoX Token</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
+      background: radial-gradient(ellipse at top, #0a0a0a, #000000);
+      color: #ffffff;
       padding-top: 50px;
-      background-color: #f5f5f5;
     }
+
     img.logo {
-      max-width: 150px;
-      margin-bottom: 20px;
+      max-width: 160px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 8px #00f0ff);
     }
+
     h1 {
-      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #00f0ff;
     }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
+
+    .btn {
+      padding: 12px 28px;
+      font-size: 18px;
+      background: linear-gradient(135deg, #00f0ff, #0077ff);
+      color: #000;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
       cursor: pointer;
+      transition: all 0.3s ease;
     }
-    button:hover {
-      background-color: #0056b3;
+
+    .btn:hover {
+      background: linear-gradient(135deg, #0077ff, #00f0ff);
+      transform: scale(1.05);
+    }
+
+    .alert {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ffcc00;
     }
   </style>
 </head>
 <body>
 
-  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX Logo" class="logo" />
+  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" class="logo" alt="NeoX Logo" />
+
   <h1>Add NeoX Token to MetaMask</h1>
-  <button onclick="addToken()">Add NeoX</button>
+  <button class="btn" onclick="addToken()">Add NeoX</button>
+
+  <div id="alert" class="alert"></div>
 
   <script>
     async function addToken() {
-      const tokenAddress = "0x80AD039927cDf2341c1428b0ABF8D3421dc122e1"; // 你已經用緊嘅地址
+      const tokenAddress = "0x80AD039927cDf2341c1428b0ABF8D3421dc122e1"; // 合約地址
       const tokenSymbol = "NXC";
       const tokenDecimals = 18;
       const tokenImage = "https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe";
@@ -58,14 +78,16 @@
           },
         });
 
+        const alertBox = document.getElementById("alert");
         if (wasAdded) {
-          alert("NeoX Token 已成功加入 MetaMask！");
+          alertBox.innerText = "✅ NeoX Token 已成功加入 MetaMask！";
         } else {
-          alert("使用者拒絕加入代幣。");
+          alertBox.innerText = "⚠️ 使用者拒絕加入代幣。";
         }
       } catch (error) {
-        console.log(error);
-        alert("發生錯誤，請檢查 MetaMask 是否正確連接。");
+        console.error(error);
+        document.getElementById("alert").innerText =
+          "❌ 發生錯誤，請檢查 MetaMask 是否正確連接。";
       }
     }
   </script>
