@@ -6,90 +6,102 @@
   <title>NeoX Token</title>
   <style>
     body {
-      margin: 0;
       background-image: url("https://gateway.lighthouse.storage/ipfs/bafybeibuio6wm2lb25ee6u3zy7rw5d6zodxtbl5uri2f27bxvtnkovuxi4");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px 20px;
+      padding-top: 60px;
       color: white;
     }
-
-    .logo {
-      max-width: 150px;
-      margin-bottom: 20px;
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
-
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    img.logo {
+      max-width: 140px;
+      margin-bottom: 25px;
+    }
     h1 {
-      font-size: 28px;
+      color: #fff;
       text-shadow: 1px 1px 2px #000;
+      margin-bottom: 30px;
     }
-
     button {
-      margin: 10px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 16px;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #0056b3;
     }
-
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 15px;
+    .alert {
+      margin-top: 25px;
+      font-weight: bold;
     }
-
-    .lang-switch button {
-      padding: 5px 10px;
-      font-size: 14px;
-    }
-
     @media (max-width: 600px) {
       h1 {
-        font-size: 20px;
+        font-size: 22px;
       }
-      .logo {
-        max-width: 120px;
+      button {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+      img.logo {
+        max-width: 110px;
       }
     }
   </style>
 </head>
 <body>
   <div class="lang-switch">
-    <button onclick="setLanguage('en')">EN</button>
-    <button onclick="setLanguage('zh')">中文</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('zh')">中文</button>
   </div>
-
-  <img class="logo" src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX Logo">
-
-  <h1 id="main-text">Add NeoX Token to MetaMask with one click</h1>
-
-  <button onclick="addToken()">Add NeoX to MetaMask</button>
+  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX Logo" class="logo" />
+  <h1 id="title">Add NeoX Token to MetaMask</h1>
+  <button onclick="addToken()" id="addBtn">Add to MetaMask</button>
+  <div class="alert" id="alertText"></div>
 
   <script>
-    const texts = {
+    const langData = {
       en: {
-        main: "Add NeoX Token to MetaMask with one click",
-        button: "Add NeoX to MetaMask"
+        title: "Add NeoX Token to MetaMask",
+        addBtn: "Add to MetaMask",
+        success: "Token added successfully!",
+        failed: "Something went wrong.",
       },
       zh: {
-        main: "一鍵加入 NeoX 代幣到 MetaMask",
-        button: "加入 NeoX 到 MetaMask"
+        title: "一鍵添加 NeoX 代幣到 MetaMask",
+        addBtn: "添加到 MetaMask",
+        success: "已成功添加代幣！",
+        failed: "發生錯誤，請再試一次。",
       }
     };
 
-    function setLanguage(lang) {
-      document.getElementById("main-text").innerText = texts[lang].main;
-      document.querySelector("button[onclick='addToken()']").innerText = texts[lang].button;
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById("title").innerText = langData[lang].title;
+      document.getElementById("addBtn").innerText = langData[lang].addBtn;
+      document.getElementById("alertText").innerText = "";
     }
 
     async function addToken() {
@@ -99,23 +111,23 @@
           params: {
             type: 'ERC20',
             options: {
-              address: '0x0000000000000000000000000000000000000000', // ← 改成你合約地址
+              address: '0x80AD039927cDf2341c1428b0ABF8D3421dc122e1',
               symbol: 'NXC',
               decimals: 18,
-              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe'
+              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe',
             },
           },
         });
-        if (wasAdded) {
-          alert('NeoX Token added!');
-        } else {
-          alert('User canceled.');
-        }
+
+        document.getElementById("alertText").innerText = wasAdded
+          ? langData[currentLang].success
+          : langData[currentLang].failed;
       } catch (error) {
         console.error(error);
-        alert('Error adding token.');
+        document.getElementById("alertText").innerText = langData[currentLang].failed;
       }
     }
   </script>
 </body>
 </html>
+      
