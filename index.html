@@ -6,88 +6,59 @@
   <title>NeoX Token</title>
   <style>
     body {
-      min-height: 100vh;
       margin: 0;
       padding: 0;
+      min-height: 100vh;
       background-image: url("https://gateway.lighthouse.storage/ipfs/bafybeibuio6wm2lb25ee6u3zy7rw5d6zodxtbl5uri2f27bxvtnkovuxi4");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       font-family: Arial, sans-serif;
+      color: white;
       text-align: center;
       padding-top: 60px;
-      color: white;
     }
-    <body>
-  <!-- Floating NeoX Logo at top-left -->
-<img
-  src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-  alt="NeoX Logo"
-  style="
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    width: 68px;
-    height: 68px;
-    opacity: 0.9;
-    z-index: 1000;
-  "
-/>
 
-<!-- Language Switch Button at top-right -->
-<div class="lang-switch">
-  <button onclick="setLang('en')">EN</button>
-  <button onclick="setLang('zh')">中文</button>
-</div>
+    /* Floating logo (top-left) */
+    .floating-logo {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      width: 68px;
+      height: 68px;
+      opacity: 0.9;
+      z-index: 1000;
+    }
 
-<!-- NeoX Coin Visual Display -->
-<div id="coin-en" style="margin-top: 40px; text-align: center; display: block;">
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX Coin Logo"
-    style="width: 160px; height: 160px;"
-  />
-  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
-    NeoX is the next-generation digital token, designed for speed, security, and the Web3 future.
-  </p>
-</div>
-
-<div id="coin-zh" style="margin-top: 40px; text-align: center; display: none;">
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX 貨幣標誌"
-    style="width: 160px; height: 160px;"
-  />
-  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
-    NeoX 是新一代數位代幣，專為速度、安全與 Web3 未來而設計。
-  </p>
-</div>
+    /* Language switch (top-right) */
     .lang-switch {
-  position: fixed;
-  top: 18px;
-  right: 20px;
-  z-index: 1000;
-}
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 1000;
+    }
 
-.lang-switch button {
-  margin-left: 5px;
-  padding: 6px 10px;
-  font-size: 12px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-    img.logo {
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .logo {
       max-width: 140px;
       margin-bottom: 25px;
     }
+
     h1 {
-      color: #fff;
+      font-size: 26px;
       text-shadow: 1px 1px 2px #000;
-      margin-bottom: 30px;
     }
+
     button {
       padding: 12px 24px;
       font-size: 16px;
@@ -97,93 +68,74 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
     .alert {
-      margin-top: 25px;
+      margin-top: 20px;
       font-weight: bold;
     }
+
+    .coin-section {
+      margin-top: 60px;
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 22px;
       }
+
+      .logo {
+        max-width: 110px;
+      }
+
       button {
         font-size: 14px;
         padding: 10px 20px;
       }
-      img.logo {
-        max-width: 110px;
+
+      .floating-logo {
+        width: 56px;
+        height: 56px;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- Footer Section -->
-<div id="footer-en" style="display: block;">
-  <!-- 英文版 Footer -->
-  <p style="font-size: 14px;">
-    <a href="what-is-neox-en.html">What is NeoX?</a> /
-    <a href="how-to-buy-en.html">How to Buy?</a> /
-    <a href="why-neox-en.html">Why NeoX?</a> /
-    <a href="how-it-works-en.html">How it Works?</a>
-  </p>
-  <p style="font-size: 16px; font-weight: bold;">
-    🚀 Join the Future of Digital Assets with <span style="color:#00bfff;">NeoX</span> — Secure, Fast, and Community-Powered.
-  </p>
-</div>
-<div id="footer-zh" style="display: none;">
-  <!-- 中文版 Footer -->
-  <p style="font-size: 14px;">
-    <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
-    <a href="how-to-buy-zh.html">如何購買？</a> /
-    <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
-    <a href="how-it-works-zh.html">運作方式？</a>
-  </p>
-  <p style="font-size: 16px; font-weight: bold;">
-    🚀 加入 <span style="color:#00bfff;">NeoX</span> — 再現數碼資產新未來。
-  </p>
-</div>
+  <!-- Top-left floating logo -->
+  <img
+    class="floating-logo"
+    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+    alt="NeoX Floating Logo"
+  />
+
+  <!-- Top-right language switch -->
   <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('zh')">中文</button>
+    <a href="index-zh.html"><button>中文</button></a>
+    <a href="index.html"><button>EN</button></a>
   </div>
-  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX Logo" class="logo" />
-  <h1 id="title">Add NeoX Token to MetaMask</h1>
-  <button onclick="addToken()" id="addBtn">Add to MetaMask</button>
+
+  <!-- Center coin logo -->
+  <img class="logo" src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX Logo" />
+
+  <h1>Add NeoX Token to MetaMask</h1>
+  <button onclick="addToken()">Add to MetaMask</button>
+
   <div class="alert" id="alertText"></div>
 
+  <!-- Coin Description Section -->
+  <div class="coin-section">
+    <h3>About NeoX</h3>
+    <img src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu" alt="NeoX Coin" style="width: 260px; height: 260px;" />
+    <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
+      NeoX is the next-generation digital token, designed for speed, security, and the Web3 future.
+    </p>
+  </div>
+
   <script>
-    const langData = {
-      en: {
-        title: "Add NeoX Token to MetaMask",
-        addBtn: "Add to MetaMask",
-        success: "Token added successfully!",
-        failed: "Something went wrong.",
-      },
-      zh: {
-        title: "一鍵添加 NeoX 代幣到 MetaMask",
-        addBtn: "添加到 MetaMask",
-        success: "已成功添加代幣！",
-        failed: "發生錯誤，請再試一次。",
-      }
-    };
-
-    let currentLang = 'en';
-
-    function setLang(lang) {
-  currentLang = lang;
-
-  document.getElementById("title").innerText = langData[lang].title;
-  document.getElementById("addBtn").innerText = langData[lang].addBtn;
-  document.getElementById("alertText").innerText = "";
-
-  // 🔻 Footer 語言切換顯示邏輯
-document.getElementById("footer-en").style.display = lang === 'en' ? 'block' : 'none';
-document.getElementById("footer-zh").style.display = lang === 'zh' ? 'block' : 'none';
-document.getElementById("coin-en").style.display = lang === 'en' ? 'block' : 'none';
-document.getElementById("coin-zh").style.display = lang === 'zh' ? 'block' : 'none';
-    }
     async function addToken() {
       try {
         const wasAdded = await window.ethereum.request({
@@ -200,37 +152,13 @@ document.getElementById("coin-zh").style.display = lang === 'zh' ? 'block' : 'no
         });
 
         document.getElementById("alertText").innerText = wasAdded
-          ? langData[currentLang].success
-          : langData[currentLang].failed;
+          ? "Token added successfully!"
+          : "Something went wrong.";
       } catch (error) {
         console.error(error);
-        document.getElementById("alertText").innerText = langData[currentLang].failed;
+        document.getElementById("alertText").innerText = "Something went wrong.";
       }
     }
   </script>
-<!-- NeoX Coin Visual Display -->
-<div id="coin-en" style="margin-top: 40px; text-align: center; display: block;">
-  <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">About NeoX</h3>
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX Coin Logo"
-    style="width: 260px; height: 260px;"
-  />
-  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
-    NeoX is the next-generation digital token, designed for speed, security, and the Web3 future.
-  </p>
-</div>
-
-<div id="coin-zh" style="margin-top: 40px; text-align: center; display: none;">
-  <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">關於 NeoX</h3>
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX 貨幣標誌"
-    style="width: 260px; height: 260px;"
-  />
-  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
-    NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設計。
-  </p>
-</div>
 </body>
 </html>
