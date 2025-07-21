@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeoX 代幣</title>
   <style>
     body {
@@ -19,7 +19,6 @@
       color: white;
     }
 
-    /* 左上角浮動透明Logo */
     .logo-float {
       position: fixed;
       top: 12px;
@@ -30,7 +29,6 @@
       z-index: 1000;
     }
 
-    /* 語言切換按鈕右上角 */
     .lang-switch {
       position: fixed;
       top: 18px;
@@ -49,98 +47,62 @@
       cursor: pointer;
     }
 
-    img.logo {
-      max-width: 140px;
-      margin-bottom: 25px;
+    .coin-big {
+      width: 260px;
+      height: 260px;
     }
 
-    h1 {
-      color: #fff;
-      text-shadow: 1px 1px 2px #000;
-      margin-bottom: 30px;
+    .nav-links {
+      margin-top: 30px;
+      font-size: 14px;
     }
 
-    button {
-      padding: 12px 24px;
+    .nav-links a {
+      color: #ccc;
+      margin: 0 5px;
+      text-decoration: none;
+    }
+
+    .cta-text {
       font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .alert {
-      margin-top: 25px;
       font-weight: bold;
+      margin-top: 20px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 22px;
-      }
-
-      button {
-        font-size: 14px;
-        padding: 10px 20px;
-      }
-
-      img.logo {
-        max-width: 110px;
-      }
+    .blue {
+      color: #00bfff;
     }
   </style>
 </head>
 <body>
-  <!-- 左上角浮動透明 Logo -->
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX Logo"
-    class="logo-float"
-  />
+  <!-- 左上角透明 logo -->
+  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6oerwgligznhqe6pl7i24jndaqzsnj24goy7d7wzfk3u" alt="NeoX 標誌" class="logo-float" />
 
   <!-- 語言切換按鈕 -->
   <div class="lang-switch">
-    <button onclick="window.location.href='index.html'">EN</button>
-    <button>中文</button>
+    <button onclick="location.href='index-zh.html'">中文</button>
+    <button onclick="location.href='index.html'">EN</button>
   </div>
 
-  <!-- 中間主 Logo -->
-  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX 主 Logo" class="logo" />
+  <!-- Add to MetaMask 按鈕 -->
+  <h2>將 NeoX 代幣加入 MetaMask</h2>
+  <button onclick="addToken()">加入 MetaMask</button>
 
-  <h1>一鍵添加 NeoX 代幣到 MetaMask</h1>
-  <button onclick="addToken()">添加到 MetaMask</button>
-  <div class="alert" id="alertText"></div>
+  <!-- 中間大 Coin 圖 -->
+  <h3>關於 NeoX</h3>
+  <img src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuiitpyfzs4gt6vapcf5uwhi2wdu" alt="NeoX Coin" class="coin-big" />
 
-  <!-- 關於 NeoX -->
-  <div style="margin-top: 40px; text-align: center;">
-    <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">關於 NeoX</h3>
-    <img
-      src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-      alt="NeoX 貨幣標誌"
-      style="width: 260px; height: 260px;"
-    />
-    <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
-      NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設計。
-    </p>
+  <p>NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設。</p>
+
+  <!-- 中文四個導覽連結 -->
+  <div class="nav-links">
+    <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
+    <a href="how-to-buy-zh.html">如何購買？</a> /
+    <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
+    <a href="how-it-works-zh.html">運作方式？</a>
   </div>
 
-  <!-- 頁尾連結 -->
-  <div style="margin-top: 30px;">
-    <p style="font-size: 14px;">
-      <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
-      <a href="how-to-buy-zh.html">如何購買？</a> /
-      <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
-      <a href="how-it-works-zh.html">運作方式？</a>
-    </p>
-    <p style="font-size: 16px; font-weight: bold;">
-      🚀 加入 <span style="color:#00bfff;">NeoX</span> — 再現數碼資產新未來。
-    </p>
-  </div>
+  <p class="cta-text">🚀 加入 <span class="blue">NeoX</span> — 再現數位資產新未來。</p>
 
   <script>
     async function addToken() {
@@ -150,19 +112,22 @@
           params: {
             type: 'ERC20',
             options: {
-              address: '0x80AD039927cDf2341c1428b0ABF8D3421dc122e1',
+              address: '0x80AD039927cDf2341c1428b0BAFB8D3421dc122e1',
               symbol: 'NXC',
               decimals: 18,
-              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe',
+              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6oerwgligznhqe6pl7i24jndaqzsnj24goy7d7wzfk3u',
             },
           },
         });
-        document.getElementById("alertText").innerText = wasAdded
-          ? "已成功添加代幣！"
-          : "發生錯誤，請再試一次。";
+
+        if (wasAdded) {
+          alert('已成功添加代幣！');
+        } else {
+          alert('使用者取消了操作。');
+        }
       } catch (error) {
         console.error(error);
-        document.getElementById("alertText").innerText = "發生錯誤，請再試一次。";
+        alert('發生錯誤，請稍後再試。');
       }
     }
   </script>
