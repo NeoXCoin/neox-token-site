@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NeoX 代幣</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://gateway.lighthouse.storage/ipfs/bafybeibuio6wm2lb25ee6u3zy7rw5d6zodxtbl5uri2f27bxvtnkovuxi4");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 60px;
+      color: white;
+    }
+
+    /* 左上角浮動透明Logo */
+    .logo-float {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      width: 68px;
+      height: 68px;
+      opacity: 0.9;
+      z-index: 1000;
+    }
+
+    /* 語言切換按鈕右上角 */
+    .lang-switch {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    img.logo {
+      max-width: 140px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .alert {
+      margin-top: 25px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+
+      img.logo {
+        max-width: 110px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 左上角浮動透明 Logo -->
+  <img
+    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+    alt="NeoX Logo"
+    class="logo-float"
+  />
+
+  <!-- 語言切換按鈕 -->
+  <div class="lang-switch">
+    <button onclick="window.location.href='index.html'">EN</button>
+    <button>中文</button>
+  </div>
+
+  <!-- 中間主 Logo -->
+  <img src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe" alt="NeoX 主 Logo" class="logo" />
+
+  <h1>一鍵添加 NeoX 代幣到 MetaMask</h1>
+  <button onclick="addToken()">添加到 MetaMask</button>
+  <div class="alert" id="alertText"></div>
+
+  <!-- 關於 NeoX -->
+  <div style="margin-top: 40px; text-align: center;">
+    <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">關於 NeoX</h3>
+    <img
+      src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+      alt="NeoX 貨幣標誌"
+      style="width: 260px; height: 260px;"
+    />
+    <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
+      NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設計。
+    </p>
+  </div>
+
+  <!-- 頁尾連結 -->
+  <div style="margin-top: 30px;">
+    <p style="font-size: 14px;">
+      <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
+      <a href="how-to-buy-zh.html">如何購買？</a> /
+      <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
+      <a href="how-it-works-zh.html">運作方式？</a>
+    </p>
+    <p style="font-size: 16px; font-weight: bold;">
+      🚀 加入 <span style="color:#00bfff;">NeoX</span> — 再現數碼資產新未來。
+    </p>
+  </div>
+
+  <script>
+    async function addToken() {
+      try {
+        const wasAdded = await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0x80AD039927cDf2341c1428b0ABF8D3421dc122e1',
+              symbol: 'NXC',
+              decimals: 18,
+              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe',
+            },
+          },
+        });
+        document.getElementById("alertText").innerText = wasAdded
+          ? "已成功添加代幣！"
+          : "發生錯誤，請再試一次。";
+      } catch (error) {
+        console.error(error);
+        document.getElementById("alertText").innerText = "發生錯誤，請再試一次。";
+      }
+    }
+  </script>
+</body>
+</html>
