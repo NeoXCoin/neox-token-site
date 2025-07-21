@@ -135,7 +135,9 @@
   // 🔻 Footer 語言切換顯示邏輯
 document.getElementById("footer-en").style.display = lang === 'en' ? 'block' : 'none';
 document.getElementById("footer-zh").style.display = lang === 'zh' ? 'block' : 'none';
-}
+document.getElementById("coin-en").style.display = lang === 'en' ? 'block' : 'none';
+document.getElementById("coin-zh").style.display = lang === 'zh' ? 'block' : 'none';
+    }
     async function addToken() {
       try {
         const wasAdded = await window.ethereum.request({
@@ -160,5 +162,29 @@ document.getElementById("footer-zh").style.display = lang === 'zh' ? 'block' : '
       }
     }
   </script>
+<!-- NeoX Coin Visual Display -->
+<div id="coin-en" style="margin-top: 40px; text-align: center; display: block;">
+  <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">About NeoX</h3>
+  <img
+    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+    alt="NeoX Coin Logo"
+    style="width: 200px; height: 200px;"
+  />
+  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
+    NeoX is the next-generation digital token, designed for speed, security, and the Web3 future.
+  </p>
+</div>
+
+<div id="coin-zh" style="margin-top: 40px; text-align: center; display: none;">
+  <h3 style="color: #eee; font-size: 20px; margin-bottom: 15px;">關於 NeoX</h3>
+  <img
+    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+    alt="NeoX 貨幣標誌"
+    style="width: 200px; height: 200px;"
+  />
+  <p style="font-size: 15px; color: #ccc; margin-top: 10px;">
+    NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設計。
+  </p>
+</div>
 </body>
 </html>
