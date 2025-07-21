@@ -50,6 +50,7 @@
     .coin-big {
       width: 260px;
       height: 260px;
+      margin-top: 20px;
     }
 
     .nav-links {
@@ -76,30 +77,33 @@
 </head>
 <body>
   <!-- 左上角浮動透明 Logo -->
-<img
-  src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe"
-  alt="NeoX 標誌"
-  class="logo-float"
-/>
+  <img
+    src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe"
+    alt="NeoX 標誌"
+    class="logo-float"
+  />
+
   <!-- 語言切換按鈕 -->
   <div class="lang-switch">
     <button onclick="location.href='index-zh.html'">中文</button>
     <button onclick="location.href='index.html'">EN</button>
   </div>
 
-  <!-- Add to MetaMask 按鈕 -->
+  <!-- 標題 + MetaMask 按鈕 -->
   <h2>將 NeoX 代幣加入 MetaMask</h2>
   <button onclick="addToken()">加入 MetaMask</button>
 
-  <!-- 中間主幣圖 -->
-<img
-  src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-  alt="NeoX Coin"
-  style="width: 260px; height: 260px;"
-/>
+  <!-- 中間主幣圖像 -->
+  <img
+    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+    alt="NeoX Coin"
+    class="coin-big"
+  />
+
+  <!-- 介紹段落 -->
   <p>NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設。</p>
 
-  <!-- 中文四個導覽連結 -->
+  <!-- 四個中文連結 -->
   <div class="nav-links">
     <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
     <a href="how-to-buy-zh.html">如何購買？</a> /
@@ -107,8 +111,10 @@
     <a href="how-it-works-zh.html">運作方式？</a>
   </div>
 
+  <!-- CTA 宣傳語 -->
   <p class="cta-text">🚀 加入 <span class="blue">NeoX</span> — 再現數位資產新未來。</p>
 
+  <!-- 加入 MetaMask Script -->
   <script>
     async function addToken() {
       try {
