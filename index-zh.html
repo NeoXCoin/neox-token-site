@@ -54,13 +54,13 @@
     }
 
     .nav-links {
-      margin-top: 30px;
-      font-size: 14px;
+      margin-top: 20px;
+      font-size: 15px;
     }
 
     .nav-links a {
       color: #ccc;
-      margin: 0 5px;
+      margin: 0 8px;
       text-decoration: none;
     }
 
@@ -72,6 +72,17 @@
 
     .blue {
       color: #00bfff;
+    }
+
+    button.metamask-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -89,21 +100,23 @@
     <button onclick="location.href='index.html'">EN</button>
   </div>
 
-  <!-- 標題 + MetaMask 按鈕 -->
+  <!-- 中文標題 -->
   <h2>將 NeoX 代幣加入 MetaMask</h2>
-  <button onclick="addToken()">加入 MetaMask</button>
 
-  <!-- 中間主幣圖像 -->
+  <!-- MetaMask 按鈕 -->
+  <button class="metamask-button" onclick="addToken()">加入 MetaMask</button>
+
+  <!-- 中間主幣圖 -->
   <img
     src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
     alt="NeoX Coin"
     class="coin-big"
   />
 
-  <!-- 介紹段落 -->
+  <!-- 中文介紹 -->
   <p>NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設。</p>
 
-  <!-- 四個中文連結 -->
+  <!-- 導覽連結 -->
   <div class="nav-links">
     <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
     <a href="how-to-buy-zh.html">如何購買？</a> /
@@ -111,10 +124,10 @@
     <a href="how-it-works-zh.html">運作方式？</a>
   </div>
 
-  <!-- CTA 宣傳語 -->
+  <!-- 結尾 CTA -->
   <p class="cta-text">🚀 加入 <span class="blue">NeoX</span> — 再現數位資產新未來。</p>
 
-  <!-- 加入 MetaMask Script -->
+  <!-- 加入 MetaMask 腳本 -->
   <script>
     async function addToken() {
       try {
