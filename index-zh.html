@@ -3,130 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeoX 代幣</title>
-  <style>
-    body {
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      background-image: url("https://gateway.lighthouse.storage/ipfs/bafybeibuio6wm2lb25ee6u3zy7rw5d6zodxtbl5uri2f27bxvtnkovuxi4");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 60px;
-      color: white;
-    }
-
-    .logo-float {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      width: 68px;
-      height: 68px;
-      opacity: 0.9;
-      z-index: 1000;
-    }
-
-    .lang-switch {
-      position: fixed;
-      top: 18px;
-      right: 20px;
-      z-index: 1000;
-    }
-
-    .lang-switch button {
-      margin-left: 5px;
-      padding: 6px 10px;
-      font-size: 12px;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .coin-big {
-      width: 260px;
-      height: 260px;
-      margin-top: 20px;
-    }
-
-    .nav-links {
-      margin-top: 20px;
-      font-size: 15px;
-    }
-
-    .nav-links a {
-      color: #ccc;
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    .cta-text {
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
-    .blue {
-      color: #00bfff;
-    }
-
-    button.metamask-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      font-size: 14px;
-      background-color: #1e90ff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <!-- 左上角浮動透明 Logo -->
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe"
-    alt="NeoX 標誌"
-    class="logo-float"
-  />
-
-  <!-- 語言切換按鈕 -->
-  <div class="lang-switch">
-    <button onclick="location.href='index-zh.html'">中文</button>
-    <button onclick="location.href='index.html'">EN</button>
-  </div>
-
-  <!-- 中文標題 + MetaMask 按鈕區 -->
-<div>
-  <h2>將 NeoX 代幣加入 MetaMask</h2>
-  <button class="metamask-button" onclick="addToken()">加入 MetaMask</button>
-</
-  <!-- 中間主幣圖 -->
-  <img
-    src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
-    alt="NeoX Coin"
-    class="coin-big"
-  />
-
-  <!-- 中文介紹 -->
-  <p>NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設。</p>
-
-  <!-- 導覽連結 -->
-<div class="nav-links">
-  <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
-  <a href="how-to-buy-zh.html">如何購買？</a> /
-  <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
-  <a href="how-it-works-zh.html">運作方式？</a>
-</div>
-
-  <!-- 結尾 CTA -->
-  <p class="cta-text">🚀 加入 <span class="blue">NeoX</span> — 再現數位資產新未來。</p>
-
-  <!-- 加入 MetaMask 腳本 -->
+  <title>NeoX 代幣加入 MetaMask</title>
+  <link rel="stylesheet" href="styles.css" />
   <script>
     async function addToken() {
       try {
@@ -135,24 +13,112 @@
           params: {
             type: 'ERC20',
             options: {
-              address: '0x80AD039927cDf2341c1428b0BAFB8D3421dc122e1',
+              address: '0xYourTokenAddressHere',
               symbol: 'NXC',
               decimals: 18,
-              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6oerwgligznhqe6pl7i24jndaqzsnj24goy7d7wzfk3u',
+              image: 'https://gateway.lighthouse.storage/ipfs/bafybeib6hm52eg6gerwgligznhqe6pl7i24rmrtyrjxeh2eztql4cz2nfe',
             },
           },
         });
-
         if (wasAdded) {
-          alert('已成功添加代幣！');
+          console.log('Token added!');
         } else {
-          alert('使用者取消了操作。');
+          console.log('User rejected.');
         }
       } catch (error) {
-        console.error(error);
-        alert('發生錯誤，請稍後再試。');
+        console.log(error);
       }
     }
   </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #0b0f3b, #3b0f5b);
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .lang-switch button {
+      margin: 0 5px;
+      padding: 6px 10px;
+      border: none;
+      background: #444;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .main-section {
+      margin-top: 100px;
+    }
+    .coin-big {
+      width: 160px;
+      margin: 20px auto;
+    }
+    .metamask-button {
+      background-color: #167efb;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .link-group {
+      margin-top: 20px;
+    }
+    .link-group a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .link-group a:hover {
+      color: #fff;
+    }
+    .slogan {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #00bfff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 語言切換 -->
+  <div class="lang-switch">
+    <button onclick="location.href='index-zh.html'">中文</button>
+    <button onclick="location.href='index.html'">EN</button>
+  </div>
+
+  <!-- 主內容 -->
+  <div class="main-section">
+    <h2>將 NeoX 代幣加入 MetaMask</h2>
+    <button class="metamask-button" onclick="addToken()">加入 MetaMask</button>
+
+    <img
+      src="https://gateway.lighthouse.storage/ipfs/bafybeihdbshigdbwn6es2pouetnkctuuittpyfzs4gt6vapcf5uwhi2wdu"
+      alt="NeoX Coin"
+      class="coin-big"
+    />
+
+    <p>NeoX 是新一代數位代幣，專為高速、安全與 Web3 未來而設。</p>
+
+    <!-- 四大鏈接 -->
+    <div class="link-group">
+      <a href="what-is-neox-zh.html">什麼是 NeoX？</a> /
+      <a href="how-to-buy-zh.html">如何購買？</a> /
+      <a href="why-neox-zh.html">為什麼選擇 NeoX？</a> /
+      <a href="how-it-works-zh.html">運作方式？</a>
+    </div>
+
+    <div class="slogan">
+      🚀 加入 <strong>NeoX</strong> — 再現數位資產新未來。
+    </div>
+  </div>
 </body>
 </html>
+   
